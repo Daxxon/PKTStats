@@ -34,31 +34,31 @@ public class HTTPClient {
 
   }
 
-  public void sendPost() throws Exception {
-
-    // form parameters
-    Map<Object, Object> data = new HashMap<>();
-    data.put("username", "abc");
-    data.put("password", "123");
-    data.put("custom", "secret");
-    data.put("ts", System.currentTimeMillis());
-
-    HttpRequest request = HttpRequest.newBuilder()
-      .POST(buildFormDataFromMap(data))
-      .uri(URI.create("http://paymaker.pktco.in/whotopay"))
-      .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
-      .header("Content-Type", "application/x-www-form-urlencoded")
-      .build();
-
-    HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-    // print status code
-    System.out.println(response.statusCode());
-
-    // print response body
-    System.out.println(response.body());
-
-  }
+//  public void sendPost() throws Exception {
+//
+//    // form parameters
+//    Map<Object, Object> data = new HashMap<>();
+//    data.put("username", "abc");
+//    data.put("password", "123");
+//    data.put("custom", "secret");
+//    data.put("ts", System.currentTimeMillis());
+//
+//    HttpRequest request = HttpRequest.newBuilder()
+//      .POST(buildFormDataFromMap(data))
+//      .uri(URI.create("http://paymaker.pktco.in/whotopay"))
+//      .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
+//      .header("Content-Type", "application/x-www-form-urlencoded")
+//      .build();
+//
+//    HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+//
+//    // print status code
+//    System.out.println(response.statusCode());
+//
+//    // print response body
+//    System.out.println(response.body());
+//
+//  }
 
   public static HttpRequest.BodyPublisher buildFormDataFromMap(Map<Object, Object> data) {
     var builder = new StringBuilder();
